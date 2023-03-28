@@ -9,13 +9,12 @@ const Home = () => {
   const router = useRouter();
 
   return (
-    <div>
-      <div>
-        <button onClick={() => router.push("/new")}>Add Task</button>
+    <div className="flex justify-center">
+      <div className="w-7/12">
+        {tasks.map((task) => (
+          <TaskCard task={task} key={task.id} />
+        ))}
       </div>
-      {tasks.map((task) => (
-        <TaskCard task={task} key={task.id} />
-      ))}
     </div>
   );
 };
