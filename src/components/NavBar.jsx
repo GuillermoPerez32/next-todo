@@ -9,9 +9,6 @@ const NavBar = () => {
       <Link href="/">
         <h1>Task App</h1>
       </Link>
-      <div>
-        <button onClick={() => router.push("/new")}>Add Task</button>
-      </div>
     </header>
   );
 };

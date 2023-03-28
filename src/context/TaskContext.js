@@ -1,5 +1,6 @@
 "use client";
-const { createContext, useContext, useState } = require("react");
+import useLocalStorage from "@/hooks/useLocalStorage";
+import { createContext, useContext, useState, useEffect } from "react";
 
 export const TaskContext = createContext();
 
@@ -10,25 +11,7 @@ export const useTasks = () => {
 };
 
 const TaskProvider = ({ children }) => {
-  const initialTasks = [
-    {
-      id: 1,
-      title: "Go out",
-      description: "Some task",
-    },
-    {
-      id: 2,
-      title: "Go in",
-      description: "Some task",
-    },
-    {
-      id: 3,
-      title: "Study Programming",
-      description: "Some task",
-    },
-  ];
-
-  const [tasks, setTasks] = useState(initialTasks);
+  const [tasks, setTasks] = useLocalStorage("tasks", []);
 
   const createTask = (task) => {
     setTasks([
